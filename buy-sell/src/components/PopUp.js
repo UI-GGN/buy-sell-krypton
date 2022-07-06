@@ -1,10 +1,10 @@
 import React from "react";
 import "./PopUp.css";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function PopUp(props) {
-
-    let navigate = useNavigate();
+  let navigate = useNavigate();
+  
   return props.trigger ? (
     <div className="popUp">
       <div className="popUp-inner">
@@ -14,10 +14,10 @@ function PopUp(props) {
         </button>
         <h1>Registration</h1>
         <div className="popUp-buttons">
-          <button onClick={ () => navigate("/registerBuyer")}>
+          <button onClick={() => navigate("/registerBuyer")}>
             Register as Buyer
           </button>
-          <button > Register as Seller </button>
+          <button> Register as Seller </button>
         </div>
       </div>
     </div>
