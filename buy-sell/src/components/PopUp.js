@@ -1,9 +1,10 @@
 import React from "react";
-import "./RegisterPopUp.css";
-import {Link} from 'react-router-dom';
+import "./PopUp.css";
+import {useNavigate} from 'react-router-dom';
 
-function RegisterPopUp(props) {
+function PopUp(props) {
 
+    let navigate = useNavigate();
   return props.trigger ? (
     <div className="popUp">
       <div className="popUp-inner">
@@ -13,12 +14,10 @@ function RegisterPopUp(props) {
         </button>
         <h1>Registration</h1>
         <div className="popUp-buttons">
-          <button>
-          <Link to="/registerBuyer">
+          <button onClick={ () => navigate("/registerBuyer")}>
             Register as Buyer
-            </Link>
           </button>
-          <button>Register as Seller</button>
+          <button > Register as Seller </button>
         </div>
       </div>
     </div>
@@ -27,4 +26,4 @@ function RegisterPopUp(props) {
   );
 }
 
-export default RegisterPopUp;
+export default PopUp;

@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from 'react';
-import RegisterPopUp from "./components/RegisterPopUp";
+import PopUp from "./components/PopUp";
 
 function App() {
     const [buttonPopup, setButtonPopup] = useState(false);
@@ -11,8 +11,8 @@ function App() {
                 </header>
                 <button className="registartionButton" onClick={() => setButtonPopup(true)}> Register here</button>
             {/* </header> */}
-            <RegisterPopUp trigger={buttonPopup} setTrigger={setButtonPopup}>
-            </RegisterPopUp>
+            <PopUp trigger={buttonPopup} setTrigger={setButtonPopup}>
+            </PopUp>
         </div>
     );
 }
