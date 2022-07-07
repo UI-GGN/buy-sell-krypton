@@ -7,6 +7,8 @@ const validateData = (data) => {
 
   if (!data.username) {
     errors.username = "Please enter Username";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data.username)) {
+    errors.username = "Please enter valid username";
   }
 
   if (!data.phoneNumber) {
@@ -66,7 +68,7 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            {formik.touched.username && formik.errors.username ? (
+            {formik.errors.username ? (
               <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.username}
               </h5>
@@ -82,7 +84,7 @@ function Register() {
               value={formik.values.phoneNumber}
               onChange={formik.handleChange}
             />{" "}
-            {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+            {formik.errors.phoneNumber ? (
               <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.phoneNumber}
               </h5>
@@ -99,7 +101,7 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            {formik.touched.password && formik.errors.password ? (
+            {formik.errors.password ? (
               <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.password}
               </h5>
@@ -116,15 +118,19 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+            {formik.errors.confirmPassword ? (
               <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.confirmPassword}
               </h5>
             ) : null}
           </label>
         </p>
-        <button type="submit" style={{marginLeft: "180px"}}>
-          {/* disabled={!formik.errors.length}> */} Submit{" "}
+        <button
+          type="submit"
+          style={{ marginLeft: "180px" }}
+          disabled={!formik.isValid}
+        >
+          Submit{" "}
         </button>
       </form>
     </div>
