@@ -47,7 +47,7 @@ function Register() {
    },
    validate: validateData,
    onSubmit: (values) => {
-     alert(JSON.stringify(values));
+     alert("User Successfully Registered" );
    },
  });
  
