@@ -1,0 +1,13 @@
+.product-slideshow-layout
+{
+    max-width: 100%;
+    cursor: pointer;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.slide
+{
+    height: 50vh;
+}

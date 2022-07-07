@@ -1,20 +1,25 @@
+import React, {Component} from "react";
+import NavBar from "./NavBar";
 import './App.css';
+import ProductSlideshow from "./ProductSlideshow";
+import Product from "./Product";
+import Marquee from "./Marquee";
 import React, {useState} from 'react';
 import PopUp from "./components/PopUp";
 
-function App() {
-    const [buttonPopup, setButtonPopup] = useState(false);
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1> CBP MarketPlace</h1>
-                </header>
-                <button className="registartionButton" onClick={() => setButtonPopup(true)}> Register here</button>
-            {/* </header> */}
-            <PopUp trigger={buttonPopup} setTrigger={setButtonPopup}>
-            </PopUp>
-        </div>
-    );
-}
+ class App extends Component
+ {
+
+    render(){
+        return(
+           <div>
+            <NavBar />
+            <ProductSlideshow />
+            <Marquee />
+            <Product />
+           </div>
+        )
+    }
+ }
 
 export default App;
