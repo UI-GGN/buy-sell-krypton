@@ -1,0 +1,7 @@
+fileignoreconfig:
+- filename: buy-sell/src/Product.js
+  checksum: aefb673c981e457bb9e0b94a2f2e690a85f32bd27db662b0b3c9eb389ac11791
+- filename: buy-sell/src/ProductSlideshow.js
+  checksum: 0e8111be79beb855ffdd04ce91cb684db0c06d25bbdeb6c580188c389e39a1de
+- filename: buy-sell/src/NavBar.js
+  checksum: 72f0307f553f725bb8cb0933bfe9f23d0fddd1715ac34216e0480672329f8b93
