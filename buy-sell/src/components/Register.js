@@ -38,7 +38,6 @@ const validateData = (data) => {
 };
 
 function Register() {
-
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -47,6 +46,7 @@ function Register() {
       confirmPassword: "",
     },
     validate: validateData,
+    validateOnChange: validateData,
     onSubmit: () => {
       alert("User Successfully Registered!!!");
     },
@@ -58,7 +58,7 @@ function Register() {
       <form onSubmit={formik.handleSubmit}>
         <p>
           <label htmlFor="username">
-            Username:
+            <strong>Username:</strong>
             <input
               type="text"
               name="username"
@@ -66,31 +66,32 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            <div className="errors">
             {formik.touched.username && formik.errors.username ? (
-              <span style={{ color: "red" }}>{formik.errors.username}</span>
-            ) : null} </div>
+              <h5 style={{ color: "red", paddingLeft: "160px" }}>
+                {formik.errors.username}
+              </h5>
+            ) : null}
           </label>{" "}
         </p>
         <p>
           <label htmlFor="phoneNumber">
-            Phone number:
+            <strong>Phone number:</strong>
             <input
               type="text"
               name="phoneNumber"
               value={formik.values.phoneNumber}
               onChange={formik.handleChange}
             />{" "}
-            <br />
-            <div className="errors">
             {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-              <span style={{ color: "red" }}>{formik.errors.phoneNumber}</span>
-            ) : null} </div>
+              <h5 style={{ color: "red", paddingLeft: "160px" }}>
+                {formik.errors.phoneNumber}
+              </h5>
+            ) : null}
           </label>
         </p>
         <p>
           <label htmlFor="password">
-            Password:
+            <strong>Password:</strong>
             <input
               type="password"
               name="password"
@@ -98,15 +99,16 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            <div className="errors">
             {formik.touched.password && formik.errors.password ? (
-              <span style={{ color: "red" }}>{formik.errors.password}</span>
-            ) : null} </div>
+              <h5 style={{ color: "red", paddingLeft: "160px" }}>
+                {formik.errors.password}
+              </h5>
+            ) : null}
           </label>
         </p>
         <p>
           <label htmlFor="confirmPassword">
-            Confirm password:
+            <strong>Confirm password:</strong>
             <input
               type="password"
               name="confirmPassword"
@@ -114,23 +116,19 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            <div className="errors">
             {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-              <span style={{ color: "red" }}>
+              <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.confirmPassword}
-              </span>
-            ) : null} </div>
+              </h5>
+            ) : null}
           </label>
         </p>
-        <button type="submit" >
-        {/* disabled={!formik.errors.length}> */}
-          {" "}
-          Submit{" "}
+        <button type="submit" style={{marginLeft: "180px"}}>
+          {/* disabled={!formik.errors.length}> */} Submit{" "}
         </button>
       </form>
     </div>
   );
 }
- 
+
 export default Register;
- 
