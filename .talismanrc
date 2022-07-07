@@ -1,0 +1,3 @@
+fileignoreconfig:
+- filename: buy-sell/src/components/Register.js
+  checksum: 51f63952895be266a38dfcd4e4e406b172bd542f8fc2f8a3bcf80c9da308a6c6
