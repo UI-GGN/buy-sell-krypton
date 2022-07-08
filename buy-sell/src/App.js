@@ -4,6 +4,7 @@ import "./App.css";
 import ProductSlideshow from "./ProductSlideshow";
 import Product from "./Product";
 import Marquee from "./Marquee";
+import Product2 from "./Product2";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <ProductSlideshow />
       <Marquee />
       <Product />
+      <Product2 />
     </div>
   );
 }

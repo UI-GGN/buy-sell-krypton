@@ -1,9 +1,11 @@
 fileignoreconfig:
 - filename: buy-sell/src/components/Register.js
   checksum: a4bf033d9aaee20735b9cb3f18d2895c7b7897479d8fac21401a71a34be878a7
-- filename: buy-sell/src/Product.js
-  checksum: d482266ba432155c4cf8e89779f775610823dff330e6877c87e7bd324b4275ab
 - filename: buy-sell/src/NavBar.js
   checksum: 1be2c86b1d4c730039a5e5f89c7a671620243421b909f338b9554f36f2d941f3
 - filename: buy-sell/src/ProductSlideshow.js
   checksum: 60dbf0ad952d5a84e04b31b222503f850c234abf69f78a290c49028b95acb525
+- filename: buy-sell/src/Product2.js
+  checksum: e37624cb0cefc74413713e78d37afd731fdfbbd16093c0b5a24973c7bcb3c1fb
+- filename: buy-sell/src/Product.js
+  checksum: babd62941dcde5a3011a162e6678274c5fd2cf55938a1476039c8d53981790ce  
