@@ -15,6 +15,9 @@ function NavBar() {
 
         <div className="search-container">
             <button
+              hidden={
+                window.location.pathname!=="/"
+              }
               className="registartionButton"
               onClick={() => setButtonPopup(true)}
             >

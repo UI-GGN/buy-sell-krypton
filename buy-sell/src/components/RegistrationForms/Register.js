@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FormikProvider, useFormik } from "formik";
 import "./Register.css";
 import AlertPopUp from "../PopUps/AlertPopUp";
+import NavBar from "../../NavBar";
 
 const validateData = (data) => {
   const errors = {};
@@ -58,6 +59,7 @@ function Register() {
 
   return (
     <div className="Registration">
+      <NavBar/>
       <h1> Welcome to Buyer Registration Page </h1>
       <FormikProvider value={formik}>
       <form onSubmit={formik.handleSubmit}>
