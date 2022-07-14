@@ -1,6 +1,7 @@
-import React from "react";
-import { useFormik } from "formik";
+import React, { useState } from "react";
+import { FormikProvider, useFormik } from "formik";
 import "./Register.css";
+import AlertPopUp from "../PopUps/AlertPopUp";
 
 const validateData = (data) => {
   const errors = {};
@@ -40,6 +41,7 @@ const validateData = (data) => {
 };
 
 function Register() {
+  const [buttonPopup, setButtonPopup] = useState(false);
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -48,15 +50,16 @@ function Register() {
       confirmPassword: "",
     },
     validate: validateData,
-    validateOnChange: validateData,
+    validateOnMount: true,
     onSubmit: () => {
-      alert("User Successfully Registered!!!");
+      setButtonPopup(true)
     },
   });
 
   return (
     <div className="Registration">
-      <h1> Welcome to Registration Page </h1>
+      <h1> Welcome to Buyer Registration Page </h1>
+      <FormikProvider value={formik}>
       <form onSubmit={formik.handleSubmit}>
         <p>
           <label htmlFor="username">
@@ -68,7 +71,7 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            {formik.errors.username ? (
+            {formik.touched.username && formik.errors.username ? (
               <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.username}
               </h5>
@@ -84,7 +87,7 @@ function Register() {
               value={formik.values.phoneNumber}
               onChange={formik.handleChange}
             />{" "}
-            {formik.errors.phoneNumber ? (
+            {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
               <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.phoneNumber}
               </h5>
@@ -101,7 +104,7 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            {formik.errors.password ? (
+            {formik.touched.password && formik.values && formik.errors.password ? (
               <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.password}
               </h5>
@@ -118,7 +121,7 @@ function Register() {
               onChange={formik.handleChange}
             />
             <br />
-            {formik.errors.confirmPassword ? (
+            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
               <h5 style={{ color: "red", paddingLeft: "160px" }}>
                 {formik.errors.confirmPassword}
               </h5>
@@ -128,11 +131,13 @@ function Register() {
         <button
           type="submit"
           style={{ marginLeft: "180px" }}
-          disabled={!formik.isValid}
+          // disabled={!(formik.isValid && formik.dirty)}
         >
           Submit{" "}
         </button>
       </form>
+      </FormikProvider>
+      <AlertPopUp trigger={buttonPopup} setTrigger={setButtonPopup} title={"Buyer Successfully Registered!!"}></AlertPopUp>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./NavBar.css";
-import PopUp from "./components/PopUp";
+import PopUp from "./components/PopUps/PopUp";
 
 function NavBar() {
   const [buttonPopup, setButtonPopup] = useState(false);
