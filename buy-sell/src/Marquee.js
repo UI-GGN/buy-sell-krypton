@@ -3,8 +3,8 @@ import "./marquee.css";
 
 function Marquee() {
   return (
-    <div class="blink">
-      <marquee>!!! products on discount !!! Incredible Deals !!! Most Loved Brands !!!</marquee>
+    <div className="blink">
+      <p>!!! products on discount !!! Incredible Deals !!! Most Loved Brands !!!</p>
     </div>
   );
 }

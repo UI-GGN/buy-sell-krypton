@@ -33,6 +33,16 @@ function NavBar() {
           </div> */}
           <PopUp trigger={buttonPopup} setTrigger={setButtonPopup}></PopUp>
         </div>
+
+
+        <div className="search-container">
+            <button className="registartionButton">
+              Login
+            </button>
+        </div>
+
+
+
       </div>
     </header>
   );
