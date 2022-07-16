@@ -51,8 +51,12 @@ function Register() {
     validateOnChange: validateData,
     onSubmit: () => {
       alert("User Successfully Registered!!!");
+      localStorage.setItem(formik.values.username, JSON.stringify({"password":formik.values.password, "role": "buyer"}))
+      var retrievedObject = localStorage.getItem(formik.values.username);
+
+      console.log('retrievedObject: ', retrievedObject);
     },
-  });
+  });  
 
   return (
     <div className="Registration">
