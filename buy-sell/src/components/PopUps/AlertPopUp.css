@@ -16,16 +16,19 @@
     padding: 64px;
     width: 100%;
     max-width: 600px;
+    height: 10%;
     background-color: white;
+    border-radius: 10px;
 }
 
 .alertPopUp-inner .close-btn {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    background-color: #ddd;
+    top: 8px;
+    right: 8px;
+    background-color: red;
+    border-radius: 50px;
 }
 
 .alertPopUp-inner button:hover {
-    background: #ccc;
+    background:  red;
 }
