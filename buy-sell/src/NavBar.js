@@ -14,6 +14,12 @@ function NavBar() {
         <a href="#productsList">ProductsList</a>
 
         <div className="search-container">
+            <button className="registartionButton">
+              Login
+            </button>
+        </div>
+
+        <div className="search-container">
             <button
               className="registartionButton"
               onClick={() => setButtonPopup(true)}
@@ -35,11 +41,7 @@ function NavBar() {
         </div>
 
 
-        <div className="search-container">
-            <button className="registartionButton">
-              Login
-            </button>
-        </div>
+       
 
 
 
