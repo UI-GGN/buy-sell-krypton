@@ -14,6 +14,12 @@ function NavBar() {
         <a href="#productsList">ProductsList</a>
 
         <div className="search-container">
+            <button className="registartionButton">
+              Login
+            </button>
+        </div>
+
+        <div className="search-container">
             <button
               hidden={
                 window.location.pathname!=="/"
@@ -36,6 +42,12 @@ function NavBar() {
           </div> */}
           <PopUp trigger={buttonPopup} setTrigger={setButtonPopup}></PopUp>
         </div>
+
+
+       
+
+
+
       </div>
     </header>
   );

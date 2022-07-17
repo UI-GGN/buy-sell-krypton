@@ -1,4 +1,4 @@
-.blink
+p
 {
     background-color: #aa70aa;
     width: 100%;
@@ -11,6 +11,7 @@
     font-family: cursive;
     padding-top: 10px;
 }
+
 /* @keyframes blinker {
     10% {
         opacity: 0.8;
