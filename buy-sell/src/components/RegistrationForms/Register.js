@@ -53,6 +53,10 @@ function Register() {
     validate: validateData,
     validateOnMount: true,
     onSubmit: () => {
+      localStorage.setItem(formik.values.username, JSON.stringify({"password":formik.values.password, "role": "buyer"}))
+      var retrievedObject = localStorage.getItem(formik.values.username);
+
+      console.log('retrievedObject: ', retrievedObject);
       setButtonPopup(true);
     },
   });
