@@ -17,15 +17,16 @@ function Login() {
     var { username, password } = document.forms[0];
     var userData = localStorage.getItem(username.value);
     if (userData) {
-        userData = JSON.parse(userData)
+      userData = JSON.parse(userData);
       if (userData.password !== password.value) {
-          setErrorMessages({name: "password", message: errorMessage});
-        console.log("in error")}
-
+        setErrorMessages({ name: "password", message: errorMessage });
+      }
+      if (userData.role !== "buyer")
+        setErrorMessages({ name: "username", message: errorMessage });
       else setIsSubmitted(true);
     } else {
-      setErrorMessages({name: "username", message: errorMessage});
-      console.log("in this")
+      setErrorMessages({ name: "username", message: errorMessage });
+      console.log("in this");
     }
   }
 
