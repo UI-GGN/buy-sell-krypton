@@ -3,7 +3,7 @@ import "./Login.css";
 
 function Login() {
   const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(false);
 
   const errorMessage = "Please enter valid credentials";
 
@@ -14,7 +14,7 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    var { username, password } = document.forms[0];
+    const { username, password } = document.forms[0];
     var userData = localStorage.getItem(username.value);
     if (userData) {
       userData = JSON.parse(userData);
@@ -23,7 +23,7 @@ function Login() {
       }
       if (userData.role !== "buyer")
         setErrorMessages({ name: "username", message: errorMessage });
-      else setIsSubmitted(true);
+      else setisLoggedIn(true);
     } else {
       setErrorMessages({ name: "username", message: errorMessage });
       console.log("in this");
@@ -53,8 +53,8 @@ function Login() {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        <div className="title">Login</div>
+        {isLoggedIn ? <div>User is successfully logged in</div> : renderForm}
       </div>
     </div>
   );
