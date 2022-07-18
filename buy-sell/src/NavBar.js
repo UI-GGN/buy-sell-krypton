@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./NavBar.css";
-import PopUp from "./components/PopUp";
+import PopUp from "./components/Modal/PopUp";
 
 function NavBar() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -21,6 +21,9 @@ function NavBar() {
 
         <div className="search-container">
             <button
+              hidden={
+                window.location.pathname!=="/"
+              }
               className="registartionButton"
               onClick={() => setButtonPopup(true)}
             >

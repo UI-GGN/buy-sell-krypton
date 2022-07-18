@@ -17,12 +17,13 @@
     width: 100%;
     max-width: 600px;
     background-color: white;
+    border-radius: 10px;
 }
 
 .popUp-inner .close-btn{
     position: absolute;
-    top:16px;
-    right:16px
+    top:8px;
+    right:8px;
 }
 
 .popUp-inner .popUp-buttons{
@@ -33,5 +34,4 @@
 
 .popUp-buttons button{
     margin: 5px;
-
 }
