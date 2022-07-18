@@ -149,7 +149,7 @@ function Register() {
                 null
               )}
             </label>
-            <button type="submit" disabled={!(formik.isValid && formik.dirty)} style={{marginTop:"15px"}}>
+            <button className="submitButton" type="submit" disabled={!(formik.isValid && formik.dirty)} style={{marginTop:"15px"}}>
               Submit{" "}
             </button>
           </form>
@@ -157,7 +157,7 @@ function Register() {
         <AlertPopUp
           trigger={buttonPopup}
           setTrigger={setButtonPopup}
-          title = {{role} === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!"}
+          title = {role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!"}
         ></AlertPopUp>
       </div>
     </div>
