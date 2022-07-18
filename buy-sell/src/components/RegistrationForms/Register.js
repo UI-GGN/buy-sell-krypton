@@ -82,7 +82,7 @@ function Register() {
                 />
                 <br />
                 {formik.values.username && formik.errors.username ? (
-                  <h5 style={{ color: "red", paddingLeft: "160px" }}>
+                  <h5 style={{ color: "red" }}>
                     {formik.errors.username}
                   </h5>
                 ) : null}
@@ -98,7 +98,7 @@ function Register() {
                   onChange={formik.handleChange}
                 />{" "}
                 {formik.values.phoneNumber && formik.errors.phoneNumber ? (
-                  <h5 style={{ color: "red", paddingLeft: "160px" }}>
+                  <h5 style={{ color: "red" }}>
                     {formik.errors.phoneNumber}
                   </h5>
                 ) : null}
@@ -117,7 +117,7 @@ function Register() {
                 {formik.values.password &&
                 formik.values &&
                 formik.errors.password ? (
-                  <h5 style={{ color: "red", paddingLeft: "160px" }}>
+                  <h5 style={{ color: "red" }}>
                     {formik.errors.password}
                   </h5>
                 ) : null}
@@ -135,7 +135,7 @@ function Register() {
                 <br />
                 {formik.values.confirmPassword &&
                 formik.errors.confirmPassword ? (
-                  <h5 style={{ color: "red", paddingLeft: "160px" }}>
+                  <h5 style={{ color: "red" }}>
                     {formik.errors.confirmPassword}
                   </h5>
                 ) : null}
@@ -143,7 +143,7 @@ function Register() {
             </p>
             <button
               type="submit"
-              style={{ marginLeft: "180px" }}
+              style={{ marginTop: "30px" }}
               disabled={!(formik.isValid && formik.dirty)}
             >
               Submit{" "}

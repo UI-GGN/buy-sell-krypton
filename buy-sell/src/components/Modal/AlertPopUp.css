@@ -27,6 +27,8 @@
     right: 8px;
     background-color: red;
     border-radius: 50px;
+    width: 3%;
+    height: 3%;
 }
 
 .alertPopUp-inner button:hover {
