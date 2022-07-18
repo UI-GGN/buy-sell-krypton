@@ -10,7 +10,7 @@ render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/registerBuyer" element={<Register />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
