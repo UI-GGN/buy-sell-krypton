@@ -8,4 +8,4 @@ fileignoreconfig:
 - filename: buy-sell/src/Product.js
   checksum: babd62941dcde5a3011a162e6678274c5fd2cf55938a1476039c8d53981790ce  
 - filename: buy-sell/src/components/RegistrationForms/Register.js
-  checksum: 452f1b2b88d6c9fd8a8ecc9ac9c7275a3c206587fde395058a99c092ed9ca558
+  checksum: 6e81b0be61216adc5bde2560a0f1d52677483dce5627d0df9686337773a27af0

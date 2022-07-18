@@ -9,14 +9,18 @@
     border-radius: 1rem;
     margin: 40px 200px;
     padding: 20px;
-    width: 17%;
+    width: 20%;
     text-align: left;
     background-color: white;
     line-height: 30px;
 }
 
 .registration input {
-    width: 100%
+    width: 97%;
+}
+
+.registration .error{
+    font-size: 12px;
 }
 
 .registration button {

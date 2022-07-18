@@ -71,81 +71,82 @@ function Register() {
         <h1> Welcome to Buyer Registration Page </h1>
         <FormikProvider value={formik}>
           <form onSubmit={formik.handleSubmit}>
-            <p>
-              <label htmlFor="username">
-                <strong>Username:</strong>
-                <input
-                  type="text"
-                  name="username"
-                  value={formik.values.username}
-                  onChange={formik.handleChange}
-                />
-                <br />
-                {formik.values.username && formik.errors.username ? (
-                  <h5 style={{ color: "red" }}>
-                    {formik.errors.username}
-                  </h5>
-                ) : null}
-              </label>{" "}
-            </p>
-            <p>
-              <label htmlFor="phoneNumber">
-                <strong>Phone number:</strong>
-                <input
-                  type="text"
-                  name="phoneNumber"
-                  value={formik.values.phoneNumber}
-                  onChange={formik.handleChange}
-                />{" "}
-                {formik.values.phoneNumber && formik.errors.phoneNumber ? (
-                  <h5 style={{ color: "red" }}>
-                    {formik.errors.phoneNumber}
-                  </h5>
-                ) : null}
-              </label>
-            </p>
-            <p>
-              <label htmlFor="password">
-                <strong>Password:</strong>
-                <input
-                  type="password"
-                  name="password"
-                  value={formik.values.password}
-                  onChange={formik.handleChange}
-                />
-                <br />
-                {formik.values.password &&
-                formik.values &&
-                formik.errors.password ? (
-                  <h5 style={{ color: "red" }}>
-                    {formik.errors.password}
-                  </h5>
-                ) : null}
-              </label>
-            </p>
-            <p>
-              <label htmlFor="confirmPassword">
-                <strong>Confirm password:</strong>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  value={formik.values.confirmPassword}
-                  onChange={formik.handleChange}
-                />
-                <br />
-                {formik.values.confirmPassword &&
-                formik.errors.confirmPassword ? (
-                  <h5 style={{ color: "red" }}>
-                    {formik.errors.confirmPassword}
-                  </h5>
-                ) : null}
-              </label>
-            </p>
-            <button
-              type="submit"
-              style={{ marginTop: "30px" }}
-              disabled={!(formik.isValid && formik.dirty)}
-            >
+            <label htmlFor="username">
+              <strong>Username:</strong>
+              <input
+                type="text"
+                name="username"
+                value={formik.values.username}
+                onChange={formik.handleChange}
+              />
+              {formik.values.username && formik.errors.username ? (
+                <div className="error" style={{ color: "red" }}>
+                  {formik.errors.username}
+                </div>
+              ) : (
+                <div className="error" style={{fontSize: "x-small"  }}>
+                  {" "}
+                  * Username must be email Id
+                </div>
+              )}
+            </label>{" "}
+            <label htmlFor="phoneNumber">
+              <strong>Phone number:</strong>
+              <input
+                type="text"
+                name="phoneNumber"
+                value={formik.values.phoneNumber}
+                onChange={formik.handleChange}
+              />{" "}
+              {formik.values.phoneNumber && formik.errors.phoneNumber ? (
+                <div className="error" style={{ color: "red" }}>
+                  {formik.errors.phoneNumber}
+                </div>
+              ) : (
+                <div className="error" style={{fontSize: "x-small" }}>
+                  {" "}
+                  * Phone number must be 10 digits
+                </div>
+              )}
+            </label>
+            <label htmlFor="password">
+              <strong>Password:</strong>
+              <input
+                type="password"
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+              />
+              {formik.values.password &&
+              formik.values &&
+              formik.errors.password ? (
+                <div className="error" style={{ color: "red" }}>
+                  {formik.errors.password}
+                </div>
+              ) : (
+                <div className="error" style={{fontSize: "x-small" }}>
+                  * Password must include atleast one symbol, small and capital letter
+                  </div>
+              )}
+            </label>
+            <label htmlFor="confirmPassword">
+              <strong>Confirm password:</strong>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formik.values.confirmPassword}
+                onChange={formik.handleChange}
+              />
+              {formik.values.confirmPassword &&
+              formik.errors.confirmPassword ? (
+                <div className="error" style={{ color: "red" }}>
+                  {formik.errors.confirmPassword}
+                </div>
+              ) : (
+                null
+              )}
+            </label>
+            <button type="submit" disabled={!(formik.isValid && formik.dirty)} style={{marginTop:"15px"}}>
               Submit{" "}
             </button>
           </form>
