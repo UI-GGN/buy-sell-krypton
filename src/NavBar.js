@@ -7,11 +7,11 @@ function NavBar() {
   return (
     <header className="top-section-layout">
       <div className="top-nav">
-        <a className="active" href="#home">
+        <a className="active" href="src/NavBar#home">
           Home
         </a>
-        <a href="#about">About</a>
-        <a href="#productsList">ProductsList</a>
+        <a href="src/NavBar#about">About</a>
+        <a href="src/NavBar#productsList">ProductsList</a>
 
         <div className="search-container">
             <button className="registartionButton">
@@ -41,7 +41,7 @@ function NavBar() {
         </div>
 
 
-       
+
 
 
 

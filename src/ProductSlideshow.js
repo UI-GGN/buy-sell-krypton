@@ -14,7 +14,7 @@ function ProductSlideshow() {
         width="100%"
       ></img>
 
-      <script src="slideshow.js" type="text/javascript"></script>
+      <script src="./slideshow" type="text/javascript"></script>
     </div>
   );
 }
