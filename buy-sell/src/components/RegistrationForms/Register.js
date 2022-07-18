@@ -146,7 +146,7 @@ function Register() {
                 null
               )}
             </label>
-            <button type="submit" disabled={!(formik.isValid && formik.dirty)} style={{marginTop:"15px"}}>
+            <button className="submitButton" type="submit" disabled={!(formik.isValid && formik.dirty)} style={{marginTop:"15px"}}>
               Submit{" "}
             </button>
           </form>

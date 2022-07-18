@@ -13,17 +13,19 @@
     text-align: left;
     background-color: white;
     line-height: 30px;
+    font-size: 18px;
 }
 
 .registration input {
     width: 97%;
+    font-size: 15px;
 }
 
 .registration .error{
     font-size: 12px;
 }
 
-.registration button {
+.registration .submitButton {
    
     background-color: #4CAF50;
     height: 40%;
@@ -35,14 +37,15 @@
     font-size: 17px;
     cursor: pointer;  
     text-align: center; 
+    padding: 7px;
       
 }
 
-.registration button:hover {
+.registration .submitButton:hover {
     background-color: #45a049;
 }   
 
-.registration button:disabled {
+.registration .submitButton:disabled {
   background-color: #cccccc;
   color: #666666;
 }
