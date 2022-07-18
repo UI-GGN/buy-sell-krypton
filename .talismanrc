@@ -7,5 +7,5 @@ fileignoreconfig:
   checksum: e37624cb0cefc74413713e78d37afd731fdfbbd16093c0b5a24973c7bcb3c1fb
 - filename: buy-sell/src/Product.js
   checksum: babd62941dcde5a3011a162e6678274c5fd2cf55938a1476039c8d53981790ce  
-- filename: buy-sell/src/components/Register.js
-  checksum: fa4a1fe1f3d78910e4be7c17ed13d379a86730d2facb134a54f0e874f70790ca
+- filename: buy-sell/src/components/RegistrationForms/Register.js
+  checksum: 452f1b2b88d6c9fd8a8ecc9ac9c7275a3c206587fde395058a99c092ed9ca558

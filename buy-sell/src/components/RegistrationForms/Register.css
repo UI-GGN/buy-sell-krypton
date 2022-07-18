@@ -1,8 +1,8 @@
-.Registration {
+.registration {
     text-align: center;
 }
 
-.Registration form {
+.registration form {
     display: inline-block;
     border: 2px solid;
     margin: 40px 200px;
@@ -12,13 +12,13 @@
     background-color: white;
 }
 
-.Registration input {
+.registration input {
     float: right;
     padding-right: 100px;
     margin-right: 40px;
 }
 
-.Registration button {
+.registration button {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -28,12 +28,11 @@
     padding: 10px;
 }
 
-.Registration button:hover {
+.registration button:hover {
     background-color: #45a049;
 }   
 
-.Registration button:disabled {
-  /* border: 1px solid #999999; */
+.registration button:disabled {
   background-color: #cccccc;
   color: #666666;
 }
