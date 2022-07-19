@@ -9,3 +9,5 @@ fileignoreconfig:
   checksum: babd62941dcde5a3011a162e6678274c5fd2cf55938a1476039c8d53981790ce  
 - filename: buy-sell/src/components/RegistrationForms/Register.js
   checksum: 97e708c1001864ad8fe0c55d77cb897eed119414a0ffdbd49101ca055c2f42d7
+- filename: buy-sell/src/components/Login.js
+  checksum: b9cdcc766ab3ebc48f4fb08cdcf032c25f462e4e4d75ae4800d9090f426d1c24
