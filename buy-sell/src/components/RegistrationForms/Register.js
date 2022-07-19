@@ -93,11 +93,11 @@ function Register() {
                 onChange={formik.handleChange}
               />
               {formik.values.username && formik.errors.username ? (
-                <div className="error" style={{ color: "red" }}>
+                <div style={{ color: "red", fontSize:"12px" }}>
                   {formik.errors.username}
                 </div>
               ) : (
-                <div className="error" style={{fontSize: "x-small"  }}>
+                <div style={{fontSize: "x-small"  }}>
                   {" "}
                   * Username must be email Id
                 </div>
@@ -113,11 +113,11 @@ function Register() {
                 onChange={formik.handleChange}
               />{" "}
               {formik.values.phoneNumber && formik.errors.phoneNumber ? (
-                <div className="error" style={{ color: "red" }}>
+                <div style={{ color: "red", fontSize:"12px" }}>
                   {formik.errors.phoneNumber}
                 </div>
               ) : (
-                <div className="error" style={{fontSize: "x-small" }}>
+                <div style={{fontSize: "x-small" }}>
                   {" "}
                   * Phone number must be 10 digits
                 </div>
@@ -136,11 +136,11 @@ function Register() {
               {formik.values.password &&
               formik.values &&
               formik.errors.password ? (
-                <div className="error" style={{ color: "red" }}>
+                <div style={{ color: "red", fontSize:"12px" }}>
                   {formik.errors.password}
                 </div>
               ) : (
-                <div className="error" style={{fontSize: "x-small" }}>
+                <div style={{fontSize: "x-small" }}>
                   * Password must include atleast one symbol, small and capital letter
                   </div>
               )}
@@ -157,14 +157,16 @@ function Register() {
               />
               {formik.values.confirmPassword &&
               formik.errors.confirmPassword ? (
-                <div className="error" style={{ color: "red" }}>
+                <div style={{ color: "red", fontSize:"12px" }}>
                   {formik.errors.confirmPassword}
                 </div>
               ) : (
                 null
               )}
             </label>
-            <div style={{fontSize: "small" }} ><input type="checkbox" onClick={() => toggle()} /> Show password </div>
+            <div style={{fontSize: "small" }} > 
+            <input type="checkbox" style={{height: "12px"}} onClick={() => toggle()} />  Show password
+             </div>
             <button className="submitButton" type="submit" disabled={!(formik.isValid && formik.dirty)} style={{marginTop:"15px"}}>
               Submit{" "}
             </button>
