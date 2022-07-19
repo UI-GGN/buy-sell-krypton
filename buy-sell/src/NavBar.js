@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./NavBar.css";
 import PopUp from "./components/Modal/PopUp";
+import { useLocation } from "react-router-dom";
 
 function NavBar() {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const location = useLocation();
   return (
     <header className="top-section-layout">
       <div className="top-nav">
@@ -14,22 +16,20 @@ function NavBar() {
         <a href="#productsList">ProductsList</a>
 
         <div className="search-container">
-            <button className="registartionButton">
-              Login
-            </button>
+          {location.pathname !== "/login" && (
+            <button className="registartionButton">Login</button>
+          )}
         </div>
 
         <div className="search-container">
-            <button
-              hidden={
-                window.location.pathname!=="/"
-              }
-              className="registartionButton"
-              onClick={() => setButtonPopup(true)}
-            >
-              {" "}
-              Register here
-            </button>
+          <button
+            hidden={window.location.pathname !== "/"}
+            className="registartionButton"
+            onClick={() => setButtonPopup(true)}
+          >
+            {" "}
+            Register here
+          </button>
           {/* <div>
             <form>
               <img
@@ -42,12 +42,6 @@ function NavBar() {
           </div> */}
           <PopUp trigger={buttonPopup} setTrigger={setButtonPopup}></PopUp>
         </div>
-
-
-       
-
-
-
       </div>
     </header>
   );

@@ -13,7 +13,7 @@ function LoginPopup(props){
         </IconButton>
         <h1>Login</h1>
         <div className="popUp-buttons">
-          <button >
+        <button onClick={() => navigate("/login")}>
             Login as Buyer
           </button>
           <button> Login as Seller </button>
