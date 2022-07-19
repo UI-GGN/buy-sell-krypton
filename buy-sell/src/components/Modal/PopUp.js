@@ -1,6 +1,8 @@
 import React from "react";
 import "./PopUp.css";
 import { useNavigate } from "react-router-dom";
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
 function PopUp(props) {
   let navigate = useNavigate();
@@ -8,10 +10,9 @@ function PopUp(props) {
   return props.trigger ? (
     <div className="popUp">
       <div className="popUp-inner">
-        <button className="close-btn" onClick={() => props.setTrigger(false)}>
-          {" "}
-          Close
-        </button>
+      <IconButton className="close-btn" aria-label="close" onClick={() => props.setTrigger(false)}>
+      <CloseIcon />
+    </IconButton>
         <h1>Registration</h1>
         <div className="popUp-buttons">
           <button onClick={() => navigate("/registerBuyer")}>

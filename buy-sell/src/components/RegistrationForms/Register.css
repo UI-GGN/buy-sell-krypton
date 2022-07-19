@@ -1,0 +1,51 @@
+.registration {
+    text-align: center;
+    margin: 80px 0px;
+}
+
+.registration form {
+    display: inline-block;
+    border: 2px solid;
+    border-radius: 1rem;
+    margin: 40px 200px;
+    padding: 35px;
+    width: 20%;
+    text-align: left;
+    background-color: white;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.registration .formInput {
+    width: 97%;
+    font-size: 15px;
+}
+
+.registration .error{
+    font-size: 12px;
+}
+
+.registration .submitButton {
+   
+    background-color: #4CAF50;
+    height: 40%;
+    width: 100%;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;  
+    font-size: 17px;
+    cursor: pointer;  
+    text-align: center; 
+    padding: 7px;
+      
+}
+
+.registration .submitButton:hover {
+    background-color: #45a049;
+}   
+
+.registration .submitButton:disabled {
+  background-color: #cccccc;
+  color: #666666;
+}
