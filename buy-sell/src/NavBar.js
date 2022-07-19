@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./NavBar.css";
 import PopUp from "./components/Modal/PopUp";
+import LoginPopup from "./components/LoginPopup";
 
 function NavBar() {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [loginPopup, setLoginPopup] = useState(false);
   return (
     <header className="top-section-layout">
       <div className="top-nav">
@@ -14,9 +16,10 @@ function NavBar() {
         <a href="#productsList">ProductsList</a>
 
         <div className="search-container">
-            <button className="registartionButton">
+            <button className="registartionButton" onClick={() => setLoginPopup(true)}>
               Login
             </button>
+            <LoginPopup trigger={loginPopup} setTrigger={setLoginPopup}></LoginPopup>
         </div>
 
         <div className="search-container">

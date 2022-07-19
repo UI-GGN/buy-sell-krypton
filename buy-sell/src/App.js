@@ -2,9 +2,8 @@ import React from "react";
 import NavBar from "./NavBar";
 import "./App.css";
 import ProductSlideshow from "./ProductSlideshow";
-import Product from "./Product";
 import Marquee from "./Marquee";
-import Product2 from "./Product2";
+import Product1 from "./Product1";
 
 function App() {
   return (
@@ -12,8 +11,7 @@ function App() {
       <NavBar />
       <ProductSlideshow />
       <Marquee />
-      <Product />
-      <Product2 />
+      <Product1/>
     </div>
   );
 }
