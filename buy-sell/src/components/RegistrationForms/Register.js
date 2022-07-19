@@ -64,6 +64,18 @@ function Register() {
     },
   });
 
+  const toggle = () => {
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    if (password.type === "password") {
+      password.type = "text";
+      confirmPassword.type = "text";
+    } else {
+      password.type = "password";
+      confirmPassword.type = "password";
+    }
+  }
+
   return (
     <div>
       <NavBar />
@@ -74,6 +86,7 @@ function Register() {
             <label htmlFor="username">
               <strong>Username:</strong>
               <input
+                className="formInput"
                 type="text"
                 name="username"
                 value={formik.values.username}
@@ -93,6 +106,7 @@ function Register() {
             <label htmlFor="phoneNumber">
               <strong>Phone number:</strong>
               <input
+                className="formInput"
                 type="text"
                 name="phoneNumber"
                 value={formik.values.phoneNumber}
@@ -110,8 +124,10 @@ function Register() {
               )}
             </label>
             <label htmlFor="password">
-              <strong>Password:</strong>
+              <strong>Password:</strong> 
               <input
+                id="password"
+                className="formInput"
                 type="password"
                 name="password"
                 value={formik.values.password}
@@ -132,6 +148,8 @@ function Register() {
             <label htmlFor="confirmPassword">
               <strong>Confirm password:</strong>
               <input
+                id="confirmPassword"
+                className="formInput"
                 type="password"
                 name="confirmPassword"
                 value={formik.values.confirmPassword}
@@ -146,6 +164,7 @@ function Register() {
                 null
               )}
             </label>
+            <div style={{fontSize: "small" }} ><input type="checkbox" onClick={() => toggle()} /> Show password </div>
             <button className="submitButton" type="submit" disabled={!(formik.isValid && formik.dirty)} style={{marginTop:"15px"}}>
               Submit{" "}
             </button>

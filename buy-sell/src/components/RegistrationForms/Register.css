@@ -8,7 +8,7 @@
     border: 2px solid;
     border-radius: 1rem;
     margin: 40px 200px;
-    padding: 20px;
+    padding: 35px;
     width: 20%;
     text-align: left;
     background-color: white;
@@ -16,7 +16,7 @@
     font-size: 18px;
 }
 
-.registration input {
+.registration .formInput {
     width: 97%;
     font-size: 15px;
 }
