@@ -3,6 +3,7 @@ import { FormikProvider, useFormik } from "formik";
 import "./Register.css";
 import AlertPopUp from "../Modal/AlertPopUp";
 import NavBar from "../../NavBar";
+import { useLocation } from "react-router-dom";
 
 const validateData = (data) => {
   const errors = {};
@@ -42,6 +43,8 @@ const validateData = (data) => {
 };
 
 function Register() {
+  const location = useLocation();
+  const role = location.state.role;
   const [buttonPopup, setButtonPopup] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -55,7 +58,7 @@ function Register() {
     onSubmit: () => {
       localStorage.setItem(
         formik.values.username,
-        JSON.stringify({ password: formik.values.password, role: "buyer" })
+        JSON.stringify({ password: formik.values.password, role: role })
       );
       var retrievedObject = localStorage.getItem(formik.values.username);
 
@@ -80,7 +83,7 @@ function Register() {
     <div>
       <NavBar />
       <div className="registration">
-        <h1> Welcome to Buyer Registration Page </h1>
+        <h1> Welcome to {role} Registration Page </h1>
         <FormikProvider value={formik}>
           <form onSubmit={formik.handleSubmit}>
             <label htmlFor="username">
@@ -175,7 +178,7 @@ function Register() {
         <AlertPopUp
           trigger={buttonPopup}
           setTrigger={setButtonPopup}
-          title={"Buyer Successfully Registered!!"}
+          title = {role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!"}
         ></AlertPopUp>
       </div>
     </div>
