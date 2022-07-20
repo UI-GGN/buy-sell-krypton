@@ -1,3 +1,14 @@
+# Buy-sell
+
+Buy-sell which is a cbp marketplace displaying list of products one can buy from. Here one can register/login as a buyer as well as a seller.
+
+# Index
+
+* [Setup machine](#setup-machine)
+* [Build and local test](#build-and-test)
+    + [Running buy-sell locally](#running-application)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
