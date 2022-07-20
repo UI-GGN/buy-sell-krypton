@@ -23,8 +23,9 @@ function NavBar() {
           {location.pathname !== "/login" && (
             <button className="registartionButton" onClick={() => setLoginPopup(true)}>Login </button>
           )}
+          <LoginPopup trigger={loginPopup} setTrigger={setLoginPopup}></LoginPopup>
         </div>
-        <LoginPopup trigger={loginPopup} setTrigger={setLoginPopup}></LoginPopup>
+        
         <div className="search-container">
           <button
             hidden={window.location.pathname !== "/"}

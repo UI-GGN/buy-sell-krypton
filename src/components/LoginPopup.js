@@ -1,10 +1,12 @@
 import React from "react";
-import "/Users/janani/Downloads/buy-sell-krypton/buy-sell/src/components/Modal/PopUp.css";
+// import "/Users/janani/Downloads/buy-sell-krypton/src/components/Modal/PopUp.css";
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import { useNavigate } from "react-router-dom";
 
 
 function LoginPopup(props){
+  let navigate = useNavigate();
   return (props.trigger) ? (
     <div className="popUp">
       <div className="popUp-inner">
