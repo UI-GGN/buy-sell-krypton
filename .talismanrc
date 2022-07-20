@@ -1,13 +1,13 @@
 fileignoreconfig:
-- filename: buy-sell/src/NavBar.js
-  checksum: 1be2c86b1d4c730039a5e5f89c7a671620243421b909f338b9554f36f2d941f3
-- filename: buy-sell/src/ProductSlideshow.js
-  checksum: 60dbf0ad952d5a84e04b31b222503f850c234abf69f78a290c49028b95acb525
 - filename: buy-sell/src/Product2.js
   checksum: e37624cb0cefc74413713e78d37afd731fdfbbd16093c0b5a24973c7bcb3c1fb
 - filename: buy-sell/src/Product.js
   checksum: babd62941dcde5a3011a162e6678274c5fd2cf55938a1476039c8d53981790ce  
 - filename: buy-sell/src/components/RegistrationForms/Register.js
-  checksum: 97e708c1001864ad8fe0c55d77cb897eed119414a0ffdbd49101ca055c2f42d7
+  checksum: 0eea428f9a4b72bd65d701075b79a854a2a52a9bdb1ca243ef58da5b79ce3223
 - filename: buy-sell/src/components/Login.js
   checksum: b9cdcc766ab3ebc48f4fb08cdcf032c25f462e4e4d75ae4800d9090f426d1c24
+- filename: buy-sell/package-lock.json
+  checksum: 4ec7bbb7581312429dd11e7d1a5ac4a00fd83c05c8e478a6d88881f94f5f7169
+- filename: buy-sell/README.md
+  checksum: bd68675e2a00ab80ba905c63640c03435a4babf3517e960087ed56025640f73f

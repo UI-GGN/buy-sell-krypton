@@ -1,6 +1,0 @@
-fileignoreconfig:
-- filename: buy-sell/src/Product2.js
-  checksum: e37624cb0cefc74413713e78d37afd731fdfbbd16093c0b5a24973c7bcb3c1fb
-- filename: buy-sell/src/Product.js
-  checksum: babd62941dcde5a3011a162e6678274c5fd2cf55938a1476039c8d53981790ce
-version: ""

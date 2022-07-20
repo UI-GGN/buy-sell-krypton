@@ -3,6 +3,7 @@ import { FormikProvider, useFormik } from "formik";
 import "./Register.css";
 import AlertPopUp from "../Modal/AlertPopUp";
 import NavBar from "../../NavBar";
+import { useLocation } from "react-router-dom";
 
 const validateData = (data) => {
   const errors = {};
@@ -42,6 +43,8 @@ const validateData = (data) => {
 };
 
 function Register() {
+  const location = useLocation();
+  const role = location.state.role;
   const [buttonPopup, setButtonPopup] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -55,7 +58,7 @@ function Register() {
     onSubmit: () => {
       localStorage.setItem(
         formik.values.username,
-        JSON.stringify({ password: formik.values.password, role: "buyer" })
+        JSON.stringify({ password: formik.values.password, role: role })
       );
       var retrievedObject = localStorage.getItem(formik.values.username);
 
@@ -80,7 +83,7 @@ function Register() {
     <div>
       <NavBar />
       <div className="registration">
-        <h1> Welcome to Buyer Registration Page </h1>
+        <h1> Welcome to {role} Registration Page </h1>
         <FormikProvider value={formik}>
           <form onSubmit={formik.handleSubmit}>
             <label htmlFor="username">
@@ -93,11 +96,11 @@ function Register() {
                 onChange={formik.handleChange}
               />
               {formik.values.username && formik.errors.username ? (
-                <div className="error" style={{ color: "red" }}>
+                <div style={{ color: "red", fontSize:"12px" }}>
                   {formik.errors.username}
                 </div>
               ) : (
-                <div className="error" style={{fontSize: "x-small"  }}>
+                <div style={{fontSize: "x-small"  }}>
                   {" "}
                   * Username must be email Id
                 </div>
@@ -113,11 +116,11 @@ function Register() {
                 onChange={formik.handleChange}
               />{" "}
               {formik.values.phoneNumber && formik.errors.phoneNumber ? (
-                <div className="error" style={{ color: "red" }}>
+                <div style={{ color: "red", fontSize:"12px" }}>
                   {formik.errors.phoneNumber}
                 </div>
               ) : (
-                <div className="error" style={{fontSize: "x-small" }}>
+                <div style={{fontSize: "x-small" }}>
                   {" "}
                   * Phone number must be 10 digits
                 </div>
@@ -136,11 +139,11 @@ function Register() {
               {formik.values.password &&
               formik.values &&
               formik.errors.password ? (
-                <div className="error" style={{ color: "red" }}>
+                <div style={{ color: "red", fontSize:"12px" }}>
                   {formik.errors.password}
                 </div>
               ) : (
-                <div className="error" style={{fontSize: "x-small" }}>
+                <div style={{fontSize: "x-small" }}>
                   * Password must include atleast one symbol, small and capital letter
                   </div>
               )}
@@ -157,14 +160,16 @@ function Register() {
               />
               {formik.values.confirmPassword &&
               formik.errors.confirmPassword ? (
-                <div className="error" style={{ color: "red" }}>
+                <div style={{ color: "red", fontSize:"12px" }}>
                   {formik.errors.confirmPassword}
                 </div>
               ) : (
                 null
               )}
             </label>
-            <div style={{fontSize: "small" }} ><input type="checkbox" onClick={() => toggle()} /> Show password </div>
+            <div style={{fontSize: "small" }} > 
+            <input type="checkbox" style={{height: "12px"}} onClick={() => toggle()} />  Show password
+             </div>
             <button className="submitButton" type="submit" disabled={!(formik.isValid && formik.dirty)} style={{marginTop:"15px"}}>
               Submit{" "}
             </button>
@@ -173,7 +178,7 @@ function Register() {
         <AlertPopUp
           trigger={buttonPopup}
           setTrigger={setButtonPopup}
-          title={"Buyer Successfully Registered!!"}
+          title = {role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!"}
         ></AlertPopUp>
       </div>
     </div>
