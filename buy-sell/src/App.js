@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import "./App.css";
 import ProductSlideshow from "./ProductSlideshow";
 import Marquee from "./Marquee";
-import Product1 from "./Product1";
+import Product from "./Product";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <NavBar />
       <ProductSlideshow />
       <Marquee />
-      <Product1/>
+      <Product/>
     </div>
   );
 }
