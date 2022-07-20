@@ -5,7 +5,7 @@ import './Product.css';
 const Product = () => {
     const [Products ,setProducts] =useState([])
 
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://rest-api-v1-cbp-krypton.herokuapp.com/products')
             .then(res=>res.json())
             .then(json=>setProducts(json))
   return (
@@ -16,16 +16,16 @@ const Product = () => {
         {Products.map((products) => (
          
             <div className="column">
-             <img className="img" src={products.image} alt="product"/>
+             <img className="img" src={products.thumbnail} alt="product"/>
             
                 <p>
                 
                     <strong>{products.title}</strong>
                   </p>
-                  <p><strong>$ {products.price}</strong></p>
+                  <p><strong>Rs {products.price}</strong></p>
               </div>
               
-           
+
          
         ))}
          </div>
