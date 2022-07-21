@@ -46,6 +46,7 @@ function Register() {
   const location = useLocation();
   const role = location.state.role;
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [message, setMessage] = useState("");
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -56,14 +57,20 @@ function Register() {
     validate: validateData,
     validateOnMount: true,
     onSubmit: () => {
-      localStorage.setItem(
-        formik.values.username,
-        JSON.stringify({ password: formik.values.password, role: role })
-      );
-      var retrievedObject = localStorage.getItem(formik.values.username);
-
-      console.log("retrievedObject: ", retrievedObject);
-      setButtonPopup(true);
+        var userDetails = JSON.parse(localStorage.getItem(formik.values.username + role));
+        if(userDetails && userDetails.role === role ){
+          setButtonPopup(true);
+          setMessage(role + " already registered!!")
+        }
+        else{
+        localStorage.setItem(
+          formik.values.username + role,
+          JSON.stringify({ password: formik.values.password, role: role })
+        );
+  
+        setButtonPopup(true);
+        setMessage(role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!");
+        }
     },
   });
 
@@ -178,7 +185,7 @@ function Register() {
         <AlertPopUp
           trigger={buttonPopup}
           setTrigger={setButtonPopup}
-          title = {role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!"}
+          title = {message}
         ></AlertPopUp>
       </div>
     </div>
