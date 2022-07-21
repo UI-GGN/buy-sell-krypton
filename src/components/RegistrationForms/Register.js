@@ -67,7 +67,6 @@ function Register() {
           formik.values.username + role,
           JSON.stringify({ password: formik.values.password, role: role })
         );
-        var retrievedObject = localStorage.getItem(formik.values.username + role);
   
         setButtonPopup(true);
         setMessage(role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!");
