@@ -58,7 +58,6 @@ function Register() {
     validateOnMount: true,
     onSubmit: () => {
         var userDetails = JSON.parse(localStorage.getItem(formik.values.username + role));
-        console.log("User details: ",userDetails)
         if(userDetails && userDetails.role === role ){
           setButtonPopup(true);
           setMessage(role + " already registered!!")
@@ -70,7 +69,6 @@ function Register() {
         );
         var retrievedObject = localStorage.getItem(formik.values.username + role);
   
-        console.log("retrievedObject: ", retrievedObject);
         setButtonPopup(true);
         setMessage(role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!");
         }
