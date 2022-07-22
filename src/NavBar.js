@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import "./NavBar.css";
 import PopUp from "./components/Modal/PopUp";
+import LoginPopup from "./components/LoginPopup";
 import { useLocation } from "react-router-dom";
 
 function NavBar() {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [loginPopup, setLoginPopup] = useState(false);
+  
+
   const location = useLocation();
   return (
     <header className="top-section-layout">
@@ -17,10 +21,11 @@ function NavBar() {
 
         <div className="search-container">
           {location.pathname !== "/login" && (
-            <button className="registartionButton">Login</button>
+            <button className="registartionButton" onClick={() => setLoginPopup(true)}>Login </button>
           )}
+          <LoginPopup trigger={loginPopup} setTrigger={setLoginPopup}></LoginPopup>
         </div>
-
+        
         <div className="search-container">
           <button
             hidden={window.location.pathname !== "/"}
