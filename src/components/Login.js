@@ -18,16 +18,15 @@ function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     const { username, password } = document.forms[0];
-    console.log(password.value)
-    var userData = localStorage.getItem(username.value);
+    var userData = localStorage.getItem(username.value + "Buyer");
     if (userData) {
       userData = JSON.parse(userData);
       if (userData.password !== password.value) {
         setErrorMessages({ name: "password", message: errorMessage });
       }
-      if (userData.role !== "buyer")
+      if (userData.role !== "Buyer")
         setErrorMessages({ name: "username", message: errorMessage });
-      if (userData.password === password.value && userData.role === "buyer") setisLoggedIn(true);
+      if (userData.password === password.value && userData.role === "Buyer") setisLoggedIn(true);
     } else {
       setErrorMessages({ name: "username", message: errorMessage });
       console.log("in this");
