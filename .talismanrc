@@ -11,3 +11,5 @@ fileignoreconfig:
   checksum: 4ec7bbb7581312429dd11e7d1a5ac4a00fd83c05c8e478a6d88881f94f5f7169
 - filename: buy-sell/README.md
   checksum: bd68675e2a00ab80ba905c63640c03435a4babf3517e960087ed56025640f73f
+- filename: src/components/RegistrationForms/Register.js
+  checksum: bf1bb052f5fe197b309fe2755e65850c40a53369dde832ffbf435b7999c4f04b
