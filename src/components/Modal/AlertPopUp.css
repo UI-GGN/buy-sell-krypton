@@ -25,12 +25,19 @@
     position: absolute;
     top: 8px;
     right: 8px;
-    background-color: red;
     border-radius: 50px;
     width: 3%;
     height: 3%;
 }
 
-.alertPopUp-inner button:hover {
-    background:  red;
-}
+.alertButton {
+    padding: 8px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .alertButton:hover {
+    background: #ccc;
+  }

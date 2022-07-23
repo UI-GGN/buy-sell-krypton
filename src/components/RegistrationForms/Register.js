@@ -46,6 +46,7 @@ function Register() {
   const location = useLocation();
   const role = location.state.role;
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [severity, setSeverity] = useState("success");
   const [message, setMessage] = useState("");
   const formik = useFormik({
     initialValues: {
@@ -55,11 +56,12 @@ function Register() {
       confirmPassword: "",
     },
     validate: validateData,
-    validateOnMount: true,
+    validateOnMount: false,
     onSubmit: () => {
         var userDetails = JSON.parse(localStorage.getItem(formik.values.username + role));
         if(userDetails && userDetails.role === role ){
           setButtonPopup(true);
+          setSeverity("error");
           setMessage(role + " already registered!!")
         }
         else{
@@ -69,8 +71,11 @@ function Register() {
         );
   
         setButtonPopup(true);
+        setSeverity("success");
         setMessage(role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!");
         }
+
+        formik.resetForm();
     },
   });
 
@@ -186,6 +191,8 @@ function Register() {
           trigger={buttonPopup}
           setTrigger={setButtonPopup}
           title = {message}
+          severity = {severity}
+          role = {role}
         ></AlertPopUp>
       </div>
     </div>
