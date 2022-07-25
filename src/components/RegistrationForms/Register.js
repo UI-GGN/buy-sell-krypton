@@ -22,13 +22,11 @@ const validateData = (data) => {
   ) {
     errors.phoneNumber = "Please enter valid phone number";
   }
-
+  var regix = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
   if (!data.password) {
     errors.password = "Please enter Password";
   } else if (
-    !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/i.test(
-      data.password
-    )
+    !regix.test(data.password)
   ) {
     errors.password = "Please enter valid password";
   }
@@ -72,7 +70,7 @@ function Register() {
   
         setButtonPopup(true);
         setSeverity("success");
-        setMessage(role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!");
+        setMessage(role + " Successfully Registered!!");
         }
 
         formik.resetForm();
