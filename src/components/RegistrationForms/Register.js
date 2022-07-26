@@ -110,7 +110,7 @@ function Register() {
                   {formik.errors.username}
                 </div>
               ) : (
-                <div style={{fontSize: "x-small"  }}>
+                <div class="line-layout" style={{fontSize: "x-small"  }}>
                   {" "}
                   * Username must be email Id
                 </div>
@@ -130,7 +130,7 @@ function Register() {
                   {formik.errors.phoneNumber}
                 </div>
               ) : (
-                <div style={{fontSize: "x-small" }}>
+                <div class="line-layout" style={{fontSize: "x-small" }}>
                   {" "}
                   * Phone number must be 10 digits
                 </div>
@@ -153,7 +153,7 @@ function Register() {
                   {formik.errors.password}
                 </div>
               ) : (
-                <div style={{fontSize: "x-small" }}>
+                <div class="line-layout" style={{fontSize: "x-small" }}>
                   * Password must include atleast one symbol, small and capital letter
                   </div>
               )}
