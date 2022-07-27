@@ -15,10 +15,10 @@ function PopUp(props) {
     </IconButton>
         <h1>Registration</h1>
         <div className="popUp-buttons">
-          <button onClick={() => navigate("/register", { state: { role: "Buyer" }})}>
+          <button onClick={() => navigate("/registerBuyer", { state: { role: "Buyer" }})}>
             Register as Buyer
           </button>
-          <button onClick={() => navigate("/register", { state: { role: "Seller" }})}> Register as Seller </button>
+          <button onClick={() => navigate("/registerSeller", { state: { role: "Seller" }})}> Register as Seller </button>
         </div>
       </div>
     </div>

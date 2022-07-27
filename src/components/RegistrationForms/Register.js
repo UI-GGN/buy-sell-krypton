@@ -22,13 +22,11 @@ const validateData = (data) => {
   ) {
     errors.phoneNumber = "Please enter valid phone number";
   }
-
+  var regix = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
   if (!data.password) {
     errors.password = "Please enter Password";
   } else if (
-    !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/i.test(
-      data.password
-    )
+    !regix.test(data.password)
   ) {
     errors.password = "Please enter valid password";
   }
@@ -46,6 +44,7 @@ function Register() {
   const location = useLocation();
   const role = location.state.role;
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [severity, setSeverity] = useState("success");
   const [message, setMessage] = useState("");
   const formik = useFormik({
     initialValues: {
@@ -55,11 +54,12 @@ function Register() {
       confirmPassword: "",
     },
     validate: validateData,
-    validateOnMount: true,
+    validateOnMount: false,
     onSubmit: () => {
         var userDetails = JSON.parse(localStorage.getItem(formik.values.username + role));
         if(userDetails && userDetails.role === role ){
           setButtonPopup(true);
+          setSeverity("error");
           setMessage(role + " already registered!!")
         }
         else{
@@ -69,8 +69,11 @@ function Register() {
         );
   
         setButtonPopup(true);
-        setMessage(role === "Buyer" ? "Buyer Successfully Registered!!!" : "Seller Successfully Registered!!!");
+        setSeverity("success");
+        setMessage(role + " Successfully Registered!!");
         }
+
+        formik.resetForm();
     },
   });
 
@@ -107,7 +110,7 @@ function Register() {
                   {formik.errors.username}
                 </div>
               ) : (
-                <div style={{fontSize: "x-small"  }}>
+                <div class="line-layout" style={{fontSize: "x-small"  }}>
                   {" "}
                   * Username must be email Id
                 </div>
@@ -127,7 +130,7 @@ function Register() {
                   {formik.errors.phoneNumber}
                 </div>
               ) : (
-                <div style={{fontSize: "x-small" }}>
+                <div class="line-layout" style={{fontSize: "x-small" }}>
                   {" "}
                   * Phone number must be 10 digits
                 </div>
@@ -150,7 +153,7 @@ function Register() {
                   {formik.errors.password}
                 </div>
               ) : (
-                <div style={{fontSize: "x-small" }}>
+                <div class="line-layout" style={{fontSize: "x-small" }}>
                   * Password must include atleast one symbol, small and capital letter
                   </div>
               )}
@@ -186,6 +189,8 @@ function Register() {
           trigger={buttonPopup}
           setTrigger={setButtonPopup}
           title = {message}
+          severity = {severity}
+          role = {role}
         ></AlertPopUp>
       </div>
     </div>
