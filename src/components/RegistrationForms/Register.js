@@ -5,40 +5,6 @@ import AlertPopUp from "../Modal/AlertPopUp";
 import NavBar from "../../NavBar";
 import { useLocation } from "react-router-dom";
 
-const validateData = (data) => {
-  const errors = {};
-
-  if (!data.username) {
-    errors.username = "Please enter Username";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data.username)) {
-    errors.username = "Please enter valid username";
-  }
-
-  if (!data.phoneNumber) {
-    errors.phoneNumber = "Please enter Phone Number";
-  } else if (
-    data.phoneNumber.length !== 10 ||
-    !/[1-9][0-9]{9}/.test(data.phoneNumber)
-  ) {
-    errors.phoneNumber = "Please enter valid phone number";
-  }
-  var regix = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
-  if (!data.password) {
-    errors.password = "Please enter Password";
-  } else if (
-    !regix.test(data.password)
-  ) {
-    errors.password = "Please enter valid password";
-  }
-
-  if (!data.confirmPassword) {
-    errors.confirmPassword = "Please enter Confirm password";
-  } else if (data.confirmPassword !== data.password) {
-    errors.confirmPassword = "Please enter valid password";
-  }
-
-  return errors;
-};
 
 function Register() {
   const location = useLocation();
@@ -46,14 +12,19 @@ function Register() {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [severity, setSeverity] = useState("success");
   const [message, setMessage] = useState("");
+  const [touchedUsername, setTouchedUsername]=useState(false);
+  const [touchedPhone, setTouchedPhone]=useState(false);
+  const [touchedPassword, setTouchedPassword]=useState(false);
+  const [touchedConfirm, setTouchedConfirm] = useState(false);
+  var regix = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
   const formik = useFormik({
+
     initialValues: {
       username: "",
       phoneNumber: "",
       password: "",
       confirmPassword: "",
     },
-    validate: validateData,
     validateOnMount: false,
     onSubmit: () => {
         var userDetails = JSON.parse(localStorage.getItem(formik.values.username + role));
@@ -104,40 +75,42 @@ function Register() {
                 name="username"
                 value={formik.values.username}
                 onChange={formik.handleChange}
+                onBlur={() => setTouchedUsername(true) }
               />
-              {formik.values.username && formik.errors.username ? (
-                <div style={{ color: "red", fontSize:"12px" }}>
-                  {formik.errors.username}
-                </div>
-              ) : (
-                <div class="line-layout" style={{fontSize: "x-small"  }}>
-                  {" "}
-                  * Username must be email Id
-                </div>
-              )}
+              {touchedUsername ? ((!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formik.values.username)) ? <div style={{ color: "red", fontSize:"12px" }}>
+                  Please enter valid username
+                </div> : <div class="line-layout" style={{fontSize: "x-small"  }}>
+                {" "}
+                * Username must be email Id
+              </div>) : (<div class="line-layout" style={{fontSize: "x-small"  }}>
+                {" "}
+                * Username must be email Id
+              </div>)}
             </label>{" "}
+
             <label htmlFor="phoneNumber">
-              <strong>Phone number:</strong>
+              <strong>Phone Number:</strong>
               <input
                 className="formInput"
                 type="text"
                 name="phoneNumber"
                 value={formik.values.phoneNumber}
                 onChange={formik.handleChange}
-              />{" "}
-              {formik.values.phoneNumber && formik.errors.phoneNumber ? (
-                <div style={{ color: "red", fontSize:"12px" }}>
-                  {formik.errors.phoneNumber}
-                </div>
-              ) : (
-                <div class="line-layout" style={{fontSize: "x-small" }}>
-                  {" "}
-                  * Phone number must be 10 digits
-                </div>
-              )}
-            </label>
+                onBlur={() => setTouchedPhone(true) }
+              />
+              {touchedPhone ? ((formik.values.phoneNumber.length !== 10 || !/[1-9][0-9]{9}/.test(formik.values.phoneNumber)) ? <div style={{ color: "red", fontSize:"12px" }}>
+                  Please enter valid phone Number
+                </div> : <div class="line-layout" style={{fontSize: "x-small"  }}>
+                {" "}
+                * Phone number must be 10 digits
+              </div>) : (<div class="line-layout" style={{fontSize: "x-small"  }}>
+                {" "}
+                * Phone number must be 10 digits
+              </div>)}
+            </label>{" "}
+
             <label htmlFor="password">
-              <strong>Password:</strong> 
+              <strong>Password:</strong>
               <input
                 id="password"
                 className="formInput"
@@ -145,38 +118,36 @@ function Register() {
                 name="password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
+                onBlur={() => setTouchedPassword(true) }
               />
-              {formik.values.password &&
-              formik.values &&
-              formik.errors.password ? (
-                <div style={{ color: "red", fontSize:"12px" }}>
-                  {formik.errors.password}
-                </div>
-              ) : (
-                <div class="line-layout" style={{fontSize: "x-small" }}>
-                  * Password must include atleast one symbol, small and capital letter
-                  </div>
-              )}
-            </label>
+              {touchedPassword ? (!regix.test(formik.values.password) ? <div style={{ color: "red", fontSize:"12px" }}>
+                  Please enter valid password
+                </div> : <div class="line-layout" style={{fontSize: "x-small"  }}>
+                {" "}
+                * Password must include atleast one symbol, small and capital letter
+              </div>) : (<div class="line-layout" style={{fontSize: "x-small"  }}>
+                {" "}
+                * Password must include atleast one symbol, small and capital letter
+              </div>)}
+            </label>{" "}
+
+
             <label htmlFor="confirmPassword">
               <strong>Confirm password:</strong>
               <input
-                id="confirmPassword"
+              id="confirmPassword"
                 className="formInput"
                 type="password"
                 name="confirmPassword"
                 value={formik.values.confirmPassword}
                 onChange={formik.handleChange}
+                onBlur={() => setTouchedConfirm(true) }
               />
-              {formik.values.confirmPassword &&
-              formik.errors.confirmPassword ? (
-                <div style={{ color: "red", fontSize:"12px" }}>
-                  {formik.errors.confirmPassword}
-                </div>
-              ) : (
-                null
-              )}
-            </label>
+              {touchedConfirm ? (formik.values.confirmPassword !== formik.values.password ? <div style={{ color: "red", fontSize:"12px" }}>
+                  Please enter same password
+                </div> : null) : (null)}
+            </label>{" "}
+
             <div style={{fontSize: "small" }} > 
             <input type="checkbox" style={{height: "12px"}} onClick={() => toggle()} />  Show password
              </div>
